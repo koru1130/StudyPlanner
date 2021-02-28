@@ -1,0 +1,20 @@
+CREATE TABLE rawRecord (
+  id TEXT PRIMARY KEY NOT NULL,
+  date INTEGER NOT NULL,
+  familiarity INTEGER,
+  note TEXT
+);
+
+selectAll:
+SELECT *
+FROM rawRecord;
+
+insert:
+INSERT INTO rawRecord(id, date, familiarity, note)
+VALUES (?, ?, ?, ?);
+
+update:
+UPDATE rawRecord
+SET date = :date , familiarity = :familiarity , note = :note
+WHERE id = :id;
+
