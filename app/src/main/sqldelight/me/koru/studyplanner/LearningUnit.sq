@@ -1,0 +1,19 @@
+CREATE TABLE rawLearningUnit (
+  id TEXT PRIMARY KEY NOT NULL,
+  text TEXT NOT NULL,
+  nextReview INTEGER
+);
+
+selectAll:
+SELECT *
+FROM rawLearningUnit;
+
+insert:
+INSERT INTO rawLearningUnit(id, text, nextReview)
+VALUES (?, ?, ?);
+
+update:
+UPDATE rawLearningUnit
+SET text = :text , nextReview = :nextReview
+WHERE id = :id;
+
