@@ -1,20 +1,27 @@
 CREATE TABLE rawRecord (
   id TEXT PRIMARY KEY NOT NULL,
-  date INTEGER NOT NULL,
+  unitId TEXT NOT NULL,
+  recordDate INTEGER NOT NULL,
   familiarity INTEGER,
-  note TEXT
+  note TEXT,
+  FOREIGN KEY (unitId) REFERENCES rawLearningUnit(id)
 );
 
 selectAll:
 SELECT *
 FROM rawRecord;
 
+selectByUnitId:
+SELECT *
+FROM rawRecord
+WHERE unitId = :unitId;
+
 insert:
-INSERT INTO rawRecord(id, date, familiarity, note)
-VALUES (?, ?, ?, ?);
+INSERT INTO rawRecord(id, unitId, recordDate, familiarity, note)
+VALUES (?, ?, ?, ?, ?);
 
 update:
 UPDATE rawRecord
-SET date = :date , familiarity = :familiarity , note = :note
+SET unitId = :unitId, recordDate = :recordDate , familiarity = :familiarity , note = :note
 WHERE id = :id;
 

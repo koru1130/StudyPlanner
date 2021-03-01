@@ -17,3 +17,6 @@ UPDATE rawLearningUnit
 SET text = :text , nextReview = :nextReview
 WHERE id = :id;
 
+delete:
+DELETE FROM rawLearningUnit
+WHERE id = :id;
